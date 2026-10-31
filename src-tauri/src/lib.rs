@@ -237,7 +237,7 @@ pub async fn run() {
         let resource_translations = ResourceTranslationsCache::load().unwrap_or_default();
         app.manage(Mutex::new(resource_translations));
 
-        let client = build_sjmcl_general_client(app.handle(), true);
+        let client = build_sjmcl_general_client(app.handle());
         app.manage(client);
 
         let download_client = build_sjmcl_download_client(app.handle(), true);

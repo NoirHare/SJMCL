@@ -34,12 +34,12 @@ use crate::launcher_config::models::{LauncherConfig, ProxyType};
 /// ```rust,ignore
 /// let client = build_sjmcl_general_client(&app, true);
 /// ```
-pub fn build_sjmcl_general_client(app: &AppHandle, use_proxy: bool) -> Client {
+pub fn build_sjmcl_general_client(app: &AppHandle) -> Client {
   let builder = ClientBuilder::new()
     .timeout(Duration::from_secs(10))
     .tcp_keepalive(Duration::from_secs(10));
 
-  build_sjmcl_client(app, use_proxy, Some(builder))
+  build_sjmcl_client(app, false, Some(builder))
 }
 
 /// Builds a separate streaming download client with the launcher User-Agent and proxy settings.
